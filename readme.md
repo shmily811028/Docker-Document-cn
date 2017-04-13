@@ -88,8 +88,89 @@
 	version   显示docker的版本信息
 	wait      阻塞,直到一个容器停止,然后打印它的退出代码
 
-##### Run 'docker COMMAND --help' for more information on a command.
 
+###attach参数(连接到已运行的容器中)
+
+	--no-stdin=false    Do not attach STDIN
+	--sig-proxy=true    Proxy all received signals to the process
+
+###build参数
+
+	-c, --cpu-shares=0    CPU配额 (相对权重)
+	--cgroup-parent=      可选的父容器组
+	--cpu-period=0        限制CPU完全公平的调度周期
+	--cpu-quota=0         限制CPU完全公平的调度配额
+	--cpuset-cpus=        允许执行的CPU (0-3, 0,1)
+	--cpuset-mems=        允许执行的内存 (0-3, 0,1)
+	-f, --file=           dockerfile的名字 (Default is 'PATH/Dockerfile')
+	--force-rm=false      总是移除中间容器
+	-m, --memory=         内存限制
+	--memory-swap=        总内存(内存 + 交换分区), '-1' 用来禁用交换分区
+	--no-cache=false      在建镜像时不要使用缓存
+	--pull=false          总是试图pull一个新版本的镜像
+	-q, --quiet=false     抑制由容器生成的详细输出
+	--rm=true             成功建造后移除中间容器
+	-t, --tag=            镜像的存储库名称（和可选标记）
+
+###commit参数
+
+	-a, --author=       作者 (e.g., "John Hannibal Smith <hannibal@a-team.com>")
+	-c, --change=[]     应用dockerfile指令来创建镜像
+	-m, --message=      提交信息
+	-p, --pause=true    提交期间暂停容器
+
+###cp 暂无参数只用作于复制
+
+###create参数
+
+	-a, --attach=[]             附上 STDIN(标准输入), STDOUT(标准输出文件) 或者 STDERR(准出错文件)
+	--add-host=[]               添加自定义主机到IP映射 (host:ip)
+	--blkio-weight=0            块IO（相对权重），10和1000之间
+	-c, --cpu-shares=0          CPU使用 (相对权重)
+	--cap-add=[]                添加Linux的功能
+	--cap-drop=[]               删除Linux的功能
+	--cgroup-parent=            容器可选父组
+	--cidfile=                  将容器ID写入文件
+	--cpu-period=0              限制 CPU 完全调度期间
+	--cpu-quota=0               限制CPU配额
+	--cpuset-cpus=              使用的CPU数量(0-3, 0,1)
+	--cpuset-mems=              使用的内存 (0-3, 0,1)
+	--device=[]                 向容器添加主机设备
+	--dns=[]                    设置自定义DNS服务器
+	--dns-search=[]             设置自定义DNS搜索域
+	-e, --env=[]                设置环境变量
+	--entrypoint=               覆盖镜像的默认入口点?(什么入口)
+	--env-file=[]               在文件中读取环境变量
+	--expose=[]                 暴露一个或多个端口
+	-h, --hostname=             容器主机名称
+	-i, --interactive=false     保持输入打开
+	--ipc=                      IPC使用的命名空间
+	-l, --label=[]              设置容器的元数据
+	--label-file=[]             读入一行分隔文件的标签
+	--link=[]                   添加链接到另一个容器
+	--log-driver=               容器日志驱动
+	--log-opt=[]                日志驱动选项
+	--lxc-conf=[]               添加自定义的lxc选项
+	-m, --memory=               内存限制
+	--mac-address=              容器Mac地址 (e.g. 92:d0:c6:0a:29:33)
+	--memory-swap=              总内存(内存 + 交换分区), '-1' 用来禁用交换分区
+	--name=                     Assign a name to the container
+	--net=bridge                Set the Network mode for the container
+	--oom-kill-disable=false    Disable OOM Killer
+	-P, --publish-all=false     Publish all exposed ports to random ports
+	-p, --publish=[]            Publish a container's port(s) to the host
+	--pid=                      PID namespace to use
+	--privileged=false          Give extended privileges to this container
+	--read-only=false           Mount the container's root filesystem as read only
+	--restart=no                Restart policy to apply when a container exits
+	--security-opt=[]           Security Options
+	-t, --tty=false             Allocate a pseudo-TTY
+	-u, --user=                 Username or UID (format: <name|uid>[:<group|gid>])
+	--ulimit=[]                 Ulimit options
+	--uts=                      UTS namespace to use
+	-v, --volume=[]             Bind mount a volume
+	--volumes-from=[]           Mount volumes from the specified container(s)
+	-w, --workdir=              Working directory inside the container
 
 ###run以下命令
 
@@ -125,7 +206,7 @@
 	--lxc-conf=[]               添加自定义LXC选项
 	-m, --memory=               内存限制
 	--mac-address=              容器Mac地址 (e.g. 92:d0:c6:0a:29:33)
-	--memory-swap=              总内存 (memory + swap), '-1' 禁用掉?
+	--memory-swap=              总内存(内存 + 交换分区), '-1' 用来禁用交换分区
 	--name=                     给容器分配名称
 	--net=bridge                设置容器的网络模式
 	--oom-kill-disable=false    禁用OOM Killer
