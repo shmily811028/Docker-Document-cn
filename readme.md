@@ -20,7 +20,6 @@
 	-G, --group=docker                   UNIX套接字组
 	-g, --graph=/var/lib/docker          Root of the Docker runtime
 	-H, --host=[]                        守护程序套接字(s)连接到
-	-h, --help=false                     打印使用情况
 	--icc=true                           启用容器间通信
 	--insecure-registry=[]               启用不安全的注册表通信
 	--ip=0.0.0.0                         绑定容器端口时的默认IP
@@ -60,7 +59,7 @@
 	history   显示一个镜像的历史
 	images    镜像列表
 	import    从一个压缩包创建一个新的镜像
-	info      显示整个系统的信息
+	info      显示 Docker 系统信息，包括镜像和容器数。
 	inspect   返回一个容器或镜像的底层信息
 	kill      停止正在运行的容器
 	load      从一个压缩包加载一个镜像
@@ -69,8 +68,8 @@
 	logs      取出容器的日志
 	pause     暂停容器内的所有进程
 	port      查看NAT-ed 至 PRIVATE_PORT的公开端口
-	ps        容器列表
-	pull      从docker服务器中pull下来一个镜像或者容器
+	ps        列出所有运行中容器
+	pull      从docker服务器中拉取一个镜像或者容器
 	push      将一个镜像或者容器push到docker服务器
 	rename    重命名现有容器
 	restart   重新启动正在运行的容器
@@ -154,23 +153,135 @@
 	-m, --memory=               内存限制
 	--mac-address=              容器Mac地址 (e.g. 92:d0:c6:0a:29:33)
 	--memory-swap=              总内存(内存 + 交换分区), '-1' 用来禁用交换分区
-	--name=                     Assign a name to the container
-	--net=bridge                Set the Network mode for the container
-	--oom-kill-disable=false    Disable OOM Killer
-	-P, --publish-all=false     Publish all exposed ports to random ports
-	-p, --publish=[]            Publish a container's port(s) to the host
-	--pid=                      PID namespace to use
-	--privileged=false          Give extended privileges to this container
-	--read-only=false           Mount the container's root filesystem as read only
-	--restart=no                Restart policy to apply when a container exits
-	--security-opt=[]           Security Options
-	-t, --tty=false             Allocate a pseudo-TTY
-	-u, --user=                 Username or UID (format: <name|uid>[:<group|gid>])
-	--ulimit=[]                 Ulimit options
-	--uts=                      UTS namespace to use
-	-v, --volume=[]             Bind mount a volume
-	--volumes-from=[]           Mount volumes from the specified container(s)
-	-w, --workdir=              Working directory inside the container
+	--name=                     分配容器名称
+	--net=bridge                设置容器的网络模式
+	--oom-kill-disable=false    禁用OOM Killer
+	-P, --publish-all=false     将所有暴露端口发布到随机端口
+	-p, --publish=[]            向主机发布容器的端口
+	--pid=                      PID使用的命名空间
+	--privileged=false          赋予容器权限
+	--read-only=false           将容器的根文件系统挂载为只读
+	--restart=no                当容器退出时重新应用策略
+	--security-opt=[]           安全选项
+	-t, --tty=false             分配一个pseudo-TTY(伪TTY)
+	-u, --user=                 用户名或UID (format: <name|uid>[:<group|gid>])
+	--ulimit=[]                 Ulimit选项
+	--uts=                      UTS使用的命名空间
+	-v, --volume=[]             绑定挂载卷
+	--volumes-from=[]           从指定容器装入卷(s)
+	-w, --workdir=              容器内的工作目录
+
+###diff暂无参数
+
+###events参数
+
+	-f, --filter=[]    根据条件过滤输出内容
+	--since=           显示自时间戳创建的所有事件
+	--until=           显示自时间产生的事件流
+
+###exec参数
+
+	-d, --detach=false         分离模式：在后台运行命令
+	-i, --interactive=false    保持输入打开即使不连接
+	-t, --tty=false            分配一个 pseudo-TTY(伪TTY)
+	-u, --user=                用户名或者 UID (format: <name|uid>[:<group|gid>])
+
+###export参数
+
+	-o, --output=      写入文件来代替标准输出
+
+###history参数
+
+	-H, --human=true     将大小和日期打印成可读的格式
+	--no-trunc=false     显示完整的描述
+	-q, --quiet=false    仅显示ID(docker IMAGE ID)
+
+###images参数
+
+	-a, --all=false      显示所有镜像 (默认隐藏中间镜像(?))
+	--digests=false      显示摘要
+	-f, --filter=[]      根据条件过滤输出内容
+	--no-trunc=false     显示完整的描述
+	-q, --quiet=false    仅显示ID(docker IMAGE ID)
+
+###import参数
+
+	-c, --change=[]    应用dockerfile指令来创建镜像
+
+###info暂无参数
+
+
+###inspect参数
+
+	-f, --format=      使用给定的GO模板格式化输出
+
+###kill参数
+
+	-s, --signal=KILL    将信号发送到容器
+
+###load参数
+
+	-i, --input=       从一个tar归档文件的读取，而不是标准输入
+
+###login参数
+
+	-e, --email=       邮箱
+	-p, --password=    密码
+	-u, --username=    用户名
+
+###logout暂无参数
+
+
+###logs参数
+
+	-f, --follow=false        跟踪日志输出
+	--since=                  显示时间戳的日志
+	-t, --timestamps=false    显示时间戳
+	--tail=all                从日志结尾显示的行数
+
+###pause暂无参数
+
+
+###port暂无参数
+
+
+###ps参数
+
+	-a, --all=false       显示所有容器 (默认显示正在运行的容器)
+	--before=             显示ID或者名称之前创建的容器
+	-f, --filter=[]       根据条件过滤显示内容
+	-l, --latest=false    显示最新创建的容器，包括非运行
+	-n=-1                 显示上次创建的容器，包括非运行
+	--no-trunc=false      显示完整的描述
+	-q, --quiet=false     只显示ID
+	-s, --size=false      显示文件总大小
+	--since=              显示创建自ID或名称，包括非运行
+
+###pull参数
+
+	-a, --all-tags=false    在存储库中下载所有标记的图像
+
+###push暂无参数
+
+
+###rename暂无参数
+
+
+###restart参数
+
+	-t, --time=10      等待制定秒数关闭容器
+
+
+###rm参数
+
+	-f, --force=false      强制删除正在运行的容器 (使用SIGKILL(信号))
+	-l, --link=false       删除制定连接
+	-v, --volumes=false    删除与容器关联的卷
+
+###rmi参数
+
+	-f, --force=false    强制删除镜像
+	--no-prune=false     不删除未标记的父镜像
 
 ###run以下命令
 
@@ -195,7 +306,6 @@
 	--env-file=[]               读入一个文件的环境变量
 	--expose=[]                 暴露一个端口或一系列端口
 	-h, --hostname=             容器主机名
-	--help=false                打印用法?
 	-i, --interactive=false     保持输入打开即使不连接
 	--ipc=                      IPC 命名空间的使用
 	-l, --label=[]              在容器上设置元数据
@@ -227,9 +337,43 @@
 	--volumes-from=[]           从指定容器装入卷(s)
 	-w, --workdir=              容器内的工作目录
 
+###save参数
+
+	-o, --output=      将标准输出写入文件
+
+###search参数
+
+	--automated=false    只列出 automated build类型的镜像
+	--no-trunc=false     显示完整的描述
+	-s, --stars=0        只列出不低于x个收藏的镜像
+
+###start参数
+
+	-a, --attach=false         附上stdout/stderr转发信号
+	-i, --interactive=false    启动一个容器并进入交互模式
+
+###stats参数
+
+	--no-stream=false    禁用流统计，只拉第一个结果
+
+###stop参数
+
+	-t, --time=10      时间(秒)结束之后关闭
+
+###tag参数
+
+	-f, --force=false    会覆盖已有标记
+
+###top暂无参数
 
 
+###unpause暂无参数
 
+
+###version暂无参数
+
+
+###wait暂无参数
 
 
 
