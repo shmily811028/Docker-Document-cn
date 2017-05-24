@@ -1,6 +1,6 @@
-#docker 命令注释
+# docker 命令注释
 
-###Options:
+### Options:
 
 	--api-cors-header=                   在远程API设置CORS的标题
 	-b, --bridge=                        将容器桥接
@@ -45,7 +45,7 @@
 	--userland-proxy=true                使用用户代理为环回流量
 	-v, --version=false                  打印版本信息并退出				
 
-###Commands:
+### Commands:
 
 	attach    连接到正在运行的容器
 	build     从Dockerfile制作镜像
@@ -88,12 +88,12 @@
 	wait      阻塞,直到一个容器停止,然后打印它的退出代码
 
 
-###attach参数(连接到已运行的容器中)
+### attach参数(连接到已运行的容器中)
 
 	--no-stdin=false    Do not attach STDIN
 	--sig-proxy=true    Proxy all received signals to the process
 
-###build参数
+### build参数
 
 	-c, --cpu-shares=0    CPU配额 (相对权重)
 	--cgroup-parent=      可选的父容器组
@@ -111,16 +111,16 @@
 	--rm=true             成功建造后移除中间容器
 	-t, --tag=            镜像的存储库名称（和可选标记）
 
-###commit参数
+### commit参数
 
 	-a, --author=       作者 (e.g., "John Hannibal Smith <hannibal@a-team.com>")
 	-c, --change=[]     应用dockerfile指令来创建镜像
 	-m, --message=      提交信息
 	-p, --pause=true    提交期间暂停容器
 
-###cp 暂无参数只用作于复制
+### cp 暂无参数只用作于复制
 
-###create参数
+### create参数
 
 	-a, --attach=[]             附上 STDIN(标准输入), STDOUT(标准输出文件) 或者 STDERR(准出错文件)
 	--add-host=[]               添加自定义主机到IP映射 (host:ip)
@@ -171,32 +171,32 @@
 	--volumes-from=[]           从指定容器装入卷(s)
 	-w, --workdir=              容器内的工作目录
 
-###diff暂无参数
+### diff暂无参数
 
-###events参数
+### events参数
 
 	-f, --filter=[]    根据条件过滤输出内容
 	--since=           显示自时间戳创建的所有事件
 	--until=           显示自时间产生的事件流
 
-###exec参数
+### exec参数
 
 	-d, --detach=false         分离模式：在后台运行命令
 	-i, --interactive=false    保持输入打开即使不连接
 	-t, --tty=false            分配一个 pseudo-TTY(伪TTY)
 	-u, --user=                用户名或者 UID (format: <name|uid>[:<group|gid>])
 
-###export参数
+### export参数
 
 	-o, --output=      写入文件来代替标准输出
 
-###history参数
+### history参数
 
 	-H, --human=true     将大小和日期打印成可读的格式
 	--no-trunc=false     显示完整的描述
 	-q, --quiet=false    仅显示ID(docker IMAGE ID)
 
-###images参数
+### images参数
 
 	-a, --all=false      显示所有镜像 (默认隐藏中间镜像(?))
 	--digests=false      显示摘要
@@ -204,48 +204,48 @@
 	--no-trunc=false     显示完整的描述
 	-q, --quiet=false    仅显示ID(docker IMAGE ID)
 
-###import参数
+### import参数
 
 	-c, --change=[]    应用dockerfile指令来创建镜像
 
-###info暂无参数
+### info暂无参数
 
 
-###inspect参数
+### inspect参数
 
 	-f, --format=      使用给定的GO模板格式化输出
 
-###kill参数
+### kill参数
 
 	-s, --signal=KILL    将信号发送到容器
 
-###load参数
+### load参数
 
 	-i, --input=       从一个tar归档文件的读取，而不是标准输入
 
-###login参数
+### login参数
 
 	-e, --email=       邮箱
 	-p, --password=    密码
 	-u, --username=    用户名
 
-###logout暂无参数
+### logout暂无参数
 
 
-###logs参数
+### logs参数
 
 	-f, --follow=false        跟踪日志输出
 	--since=                  显示时间戳的日志
 	-t, --timestamps=false    显示时间戳
 	--tail=all                从日志结尾显示的行数
 
-###pause暂无参数
+### pause暂无参数
 
 
-###port暂无参数
+### port暂无参数
 
 
-###ps参数
+### ps参数
 
 	-a, --all=false       显示所有容器 (默认显示正在运行的容器)
 	--before=             显示ID或者名称之前创建的容器
@@ -257,33 +257,33 @@
 	-s, --size=false      显示文件总大小
 	--since=              显示创建自ID或名称，包括非运行
 
-###pull参数
+### pull参数
 
 	-a, --all-tags=false    在存储库中下载所有标记的图像
 
-###push暂无参数
+### push暂无参数
 
 
-###rename暂无参数
+### rename暂无参数
 
 
-###restart参数
+### restart参数
 
 	-t, --time=10      等待制定秒数关闭容器
 
 
-###rm参数
+### rm参数
 
 	-f, --force=false      强制删除正在运行的容器 (使用SIGKILL(信号))
 	-l, --link=false       删除制定连接
 	-v, --volumes=false    删除与容器关联的卷
 
-###rmi参数
+### rmi参数
 
 	-f, --force=false    强制删除镜像
 	--no-prune=false     不删除未标记的父镜像
 
-###run以下命令
+### run以下命令
 
 	-a, --attach=[]             附着在STDIN、STDOUT和STDERR
 	--add-host=[]               添加一个自定义host-to-IP映射 (host:ip)
@@ -337,43 +337,43 @@
 	--volumes-from=[]           从指定容器装入卷(s)
 	-w, --workdir=              容器内的工作目录
 
-###save参数
+### save参数
 
 	-o, --output=      将标准输出写入文件
 
-###search参数
+### search参数
 
 	--automated=false    只列出 automated build类型的镜像
 	--no-trunc=false     显示完整的描述
 	-s, --stars=0        只列出不低于x个收藏的镜像
 
-###start参数
+### start参数
 
 	-a, --attach=false         附上stdout/stderr转发信号
 	-i, --interactive=false    启动一个容器并进入交互模式
 
-###stats参数
+### stats参数
 
 	--no-stream=false    禁用流统计，只拉第一个结果
 
-###stop参数
+### stop参数
 
 	-t, --time=10      时间(秒)结束之后关闭
 
-###tag参数
+### tag参数
 
 	-f, --force=false    会覆盖已有标记
 
-###top暂无参数
+### top暂无参数
 
 
-###unpause暂无参数
+### unpause暂无参数
 
 
-###version暂无参数
+### version暂无参数
 
 
-###wait暂无参数
+### wait暂无参数
 
 
 
